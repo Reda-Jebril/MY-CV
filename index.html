@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>السيرة الذاتية - رضا حسن دسوقي جبريل</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            scroll-behavior: smooth;
+            background-color: var(--bg-light);
+            color: var(--text-color);
+            overflow-x: hidden; /* Prevent horizontal scroll from sidebar */
+        }
+        :root {
+            --primary-color: #2563eb; /* Tailwind blue-600 */
+            --primary-color-rgb: 37, 99, 235;
+            --secondary-color: #1d4ed8; /* Tailwind blue-700 */
+            --accent-color: #f59e0b; /* Tailwind amber-500 - More professional orange/amber */
+            --accent-color-darker: #d97706; /* Tailwind amber-600 for hover */
+            --accent-color-rgb: 245, 158, 11; /* RGB for new accent */
+            --text-color: #1f2937; /* Tailwind gray-800 */
+            --text-light: #4b5563; /* Tailwind gray-600 */
+            --bg-light: #f3f4f6; /* Tailwind gray-100 */
+            --bg-card: #ffffff;
+            --nav-bg: #111827; /* Tailwind gray-900 for nav */
+            --nav-text: #d1d5db; /* Tailwind gray-300 for nav text */
+            --nav-hover-text: white;
+            --nav-active-text: white; /* Text color for active link */
+            --nav-active-indicator: var(--accent-color); /* Color for the active indicator (circle/background) */
+            --nav-hover-bg: #374151; /* Tailwind gray-700 for general hover on nav links */
+        }
+
+        /* General Card Styling */
+        .card-item {
+            transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        box-shadow 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border-radius: 0.75rem;
+            background-color: var(--bg-card);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.07);
+        }
+        .card-item:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Section Title */
+        .section-title {
+            border-bottom-width: 3px;
+            border-color: var(--primary-color);
+            padding-bottom: 0.75rem;
+            margin-bottom: 2.5rem;
+            display: flex;
+            align-items: center;
+            font-size: 2.1rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        .section-title i {
+            margin-left: 1rem;
+            font-size: 1.8rem;
+        }
+
+        /* ScrollTop Button */
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            display: none;
+            z-index: 1000;
+            transition: opacity 0.3s, transform 0.3s, background-color 0.3s;
+            padding: 0.75rem 1rem;
+            background-color: var(--accent-color);
+            color: white;
+        }
+        #scrollTopBtn:hover {
+            opacity: 1;
+            transform: scale(1.15);
+            background-color: var(--accent-color-darker);
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(145deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--bg-card);
+            padding-top: 2.5rem;
+            padding-bottom: 2.5rem;
+        }
+
+        /* Profile Image */
+        .profile-image-container {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 2rem auto;
+            border: 7px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 0 7px var(--primary-color), 0 12px 25px rgba(0,0,0,0.25);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+        }
+        .profile-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease-out;
+        }
+        .profile-image-container:hover {
+            transform: scale(1.12) rotate(4deg);
+            box-shadow: 0 0 0 10px var(--accent-color), 0 18px 35px rgba(0,0,0,0.35);
+        }
+        .profile-image-container:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Typing Effect */
+        .typing-effect-container { min-height: 3rem; }
+        .typing-effect {
+            border-left: .15em solid var(--accent-color);
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+            animation: typing 3.5s steps(40, end) forwards, blink-caret .75s step-end infinite;
+            letter-spacing: .05em;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--accent-color); }
+        }
+        .typing-effect.finished {
+            animation: blink-caret .75s step-end infinite;
+            border-left-color: transparent;
+        }
+
+        /* Timeline */
+        .timeline { position: relative; padding-right: 3rem; }
+        .timeline::before {
+            content: ''; position: absolute; top: 0; bottom: 0; right: 10px;
+            width: 4px; background-color: var(--primary-color); border-radius: 3px;
+        }
+        .timeline-item { position: relative; margin-bottom: 3rem; }
+        .timeline-item::before {
+            content: ''; position: absolute; top: 8px; right: 2px;
+            width: 20px; height: 20px; border-radius: 50%;
+            background-color: var(--bg-card); border: 5px solid var(--primary-color);
+            z-index: 1; box-shadow: 0 0 10px rgba(var(--primary-color-rgb), 0.5);
+        }
+        .timeline-content {
+            padding: 1.75rem;
+            border-radius: 0.75rem;
+        }
+
+        /* List Item Markers */
+        #personal-info ul li::before,
+        .skills-list li::before,
+        #languages ul li::before { /* This will be overridden by .section-detail-card for languages */
+            content: "\f058"; font-family: "Font Awesome 6 Free"; font-weight: 900;
+            color: var(--accent-color); margin-left: 0.6rem; font-size: 1em;
+        }
+        #personal-info ul, .skills-list, #languages ul {
+            list-style: none; padding-right: 0;
+        }
+        #personal-info ul li, .skills-list li, #languages ul li {
+            padding-right: 1.5rem; position: relative; margin-bottom: 0.8rem;
+        }
+        #personal-info ul li::before,
+        .skills-list li::before,
+        #languages ul li::before {
+            position: absolute; right: 0; top: 5px;
+        }
+
+        /* Sidebar Navigation */
+        #sideNav {
+            background-color: var(--nav-bg);
+            transition: width 0.3s ease-in-out;
+            width: 5rem; /* Collapsed width */
+        }
+        #sideNav:hover {
+            width: 16rem; /* Expanded width */
+        }
+        #sideNav .nav-link {
+            color: var(--nav-text);
+            transition: background-color 0.2s ease, color 0.2s ease, padding-right 0.3s ease;
+            display: flex;
+            align-items: center;
+            padding: 0.75rem;
+            border-radius: 0.375rem; /* rounded-md */
+            margin: 0.375rem 0.5rem; /* Adjusted margin for better spacing */
+            overflow: hidden;
+            position: relative; /* For pseudo-element positioning */
+        }
+        #sideNav .nav-link i {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+            min-width: 2.5rem; /* Icon area width */
+            text-align: center;
+            flex-shrink: 0;
+            z-index: 2; /* Ensure icon is above pseudo-element */
+        }
+        #sideNav .nav-link .link-text {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease 0.1s, visibility 0s ease 0.3s;
+            white-space: nowrap;
+            margin-right: 0.75rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            z-index: 2; /* Ensure text is above pseudo-element */
+        }
+        #sideNav:hover .nav-link .link-text {
+            opacity: 1;
+            visibility: visible;
+            transition-delay: 0s, 0s;
+        }
+
+        /* General hover for non-active links */
+        #sideNav .nav-link:not(.active):hover {
+            background-color: var(--nav-hover-bg);
+            color: var(--nav-hover-text);
+        }
+        #sideNav .nav-link:not(.active):hover i {
+            transform: scale(1.1);
+        }
+
+        /* Active link styling */
+        #sideNav .nav-link.active {
+            color: var(--nav-active-text); /* Text color for active link */
+            font-weight: 600;
+            background-color: transparent; /* Remove direct background for collapsed state */
+        }
+        #sideNav .nav-link.active::before { /* Circular indicator for collapsed state */
+            content: '';
+            display: block;
+            width: 8px; /* Size of the circle */
+            height: 8px;
+            background-color: var(--nav-active-indicator);
+            border-radius: 50%;
+            position: absolute;
+            right: 0.75rem; /* Position from the right edge of the link (adjust as needed for RTL) */
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 1;
+            transition: opacity 0.2s ease, background-color 0.2s ease;
+            z-index: 1;
+        }
+        #sideNav:hover .nav-link.active { /* Full background when sidebar is expanded */
+            background-color: var(--nav-active-indicator);
+        }
+        #sideNav:hover .nav-link.active::before { /* Hide circle when expanded */
+            opacity: 0;
+        }
+        #sideNav .nav-link.active i { /* Icon style for active link */
+            color: var(--nav-active-indicator); /* Icon takes accent color in collapsed */
+        }
+        #sideNav:hover .nav-link.active i { /* Icon style for active link when sidebar is hovered */
+            color: var(--nav-active-text); /* Icon takes text color (e.g., white) */
+            transform: scale(1.1) rotate(3deg);
+        }
+
+
+        /* PDF Download Button */
+        .pdf-download-btn {
+            background-color: var(--primary-color);
+            color: white !important;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .pdf-download-btn:hover {
+            background-color: var(--secondary-color) !important;
+            transform: translateY(-3px);
+            box-shadow: 0 7px 14px rgba(var(--primary-color-rgb), 0.25), 0 3px 6px rgba(0,0,0,0.1);
+        }
+
+        /* Centering Main Content */
+        .main-container-wrapper {}
+        .main-container {
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        @media (min-width: 768px) {
+            .main-content-shifted {
+                margin-right: 5rem;
+                transition: margin-right 0.3s ease-in-out;
+            }
+             #sideNav:hover ~ .main-content-shifted {
+                margin-right: 16rem;
+            }
+        }
+
+        /* Portfolio Section Styling */
+        .portfolio-item {
+            background-color: var(--bg-card);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e5e7eb;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .portfolio-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .portfolio-item i.file-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .portfolio-item .file-name-container {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .portfolio-item .file-name {
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 0.25rem;
+            line-height: 1.4;
+        }
+         .portfolio-item .file-description {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+        .portfolio-item .view-button {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 0.375rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: auto;
+        }
+        .portfolio-item .view-button:hover {
+            background-color: var(--accent-color-darker);
+            transform: scale(1.05);
+        }
+        .icon-pdf { color: #ef4444; }
+        .icon-pptx { color: #d946ef; }
+        .icon-docx { color: #3b82f6; }
+
+        /* Styling for specific section details */
+        .section-detail-item { /* Renamed for clarity */
+            padding: 1.25rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px 0 rgba(0,0,0,0.07), 0 1px 2px 0 rgba(0,0,0,0.05); /* Softer shadow */
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+            border-right-width: 5px; /* Thicker border */
+            margin-bottom: 1rem; /* Space between items if multiple */
+        }
+        .section-detail-item:hover {
+            box-shadow: 0 4px 8px -2px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.07);
+            transform: translateY(-2px);
+        }
+
+        .education-detail-item {
+            background-color: #e0f2fe; /* Tailwind sky-100 */
+            border-color: var(--primary-color);
+        }
+        .education-detail-item h3 { color: var(--secondary-color); }
+        .education-detail-item p { color: #0c4a6e; } /* Tailwind sky-800 */
+
+
+        .course-detail-item {
+            background-color: #f0fdfa; /* Tailwind teal-50 */
+            border-color: #14b8a6; /* Tailwind teal-500 */
+        }
+        .course-detail-item h3 { color: #0f766e; /* Tailwind teal-700 */ }
+        .course-detail-item p { color: #115e59; } /* Tailwind teal-800 */
+
+        .language-detail-item {
+            background-color: #fffbeb; /* Tailwind amber-50 */
+            border-color: var(--accent-color); /* Use the main accent color */
+        }
+        .language-detail-item strong { color: var(--accent-color-darker); }
+        .language-detail-item span { color: #78350f; } /* Tailwind amber-800 */
+
+    </style>
+</head>
+<body>
+
+    <button id="scrollTopBtn" onclick="scrollToTop()" class="bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-full shadow-xl">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <nav id="sideNav" class="fixed top-0 right-0 h-full flex flex-col items-start py-8 shadow-2xl z-50 hidden md:flex">
+        <a href="#header" class="nav-link group" title="الرئيسية">
+            <i class="fas fa-home"></i><span class="link-text">الرئيسية</span>
+        </a>
+        <a href="#about-me" class="nav-link group" title="نبذة عني">
+            <i class="fas fa-address-card"></i><span class="link-text">نبذة عني</span>
+        </a>
+        <a href="#personal-info" class="nav-link group" title="المعلومات الشخصية">
+            <i class="fas fa-user"></i><span class="link-text">المعلومات الشخصية</span>
+        </a>
+        <a href="#education" class="nav-link group" title="المؤهلات">
+            <i class="fas fa-graduation-cap"></i><span class="link-text">المؤهلات</span>
+        </a>
+        <a href="#experience" class="nav-link group" title="الخبرات">
+            <i class="fas fa-briefcase"></i><span class="link-text">الخبرات</span>
+        </a>
+        <a href="#portfolio" class="nav-link group" title="نماذج من أعمالي">
+            <i class="fas fa-folder-open"></i><span class="link-text">نماذج أعمالي</span>
+        </a>
+        <a href="#courses" class="nav-link group" title="الدورات">
+             <i class="fas fa-chalkboard-teacher"></i><span class="link-text">الدورات</span>
+        </a>
+        <a href="#skills" class="nav-link group" title="المهارات">
+            <i class="fas fa-cogs"></i><span class="link-text">المهارات</span>
+        </a>
+        <a href="#contact" class="nav-link group" title="التواصل">
+            <i class="fas fa-envelope"></i><span class="link-text">التواصل</span>
+        </a>
+    </nav>
+
+    <div class="main-content-shifted">
+        <div class="main-container-wrapper">
+            <header id="header" class="text-center shadow-xl relative overflow-hidden">
+                <div class="absolute inset-0 bg-black opacity-30"></div>
+                <div class="main-container relative z-10">
+                    <div class="profile-image-container" data-aos="zoom-in" data-aos-duration="1200">
+                        <img src="https://i.postimg.cc/fTgy9wwV/Screenshot-2025-05-15-at-12-01-02-PM.png" alt="صورة رضا جبريل الشخصية" onerror="this.onerror=null; this.src='https://placehold.co/170x170/2563eb/FFFFFF?text=R+G';">
+                    </div>
+                    <div data-aos="fade-down" data-aos-duration="1000" data-aos-delay="200">
+                        <h1 class="text-4xl md:text-5xl font-bold mb-2">رضا حسن دسوقي جبريل</h1>
+                        <div class="typing-effect-container">
+                            <p id="jobTitle" class="text-xl md:text-2xl mt-1 text-orange-300"></p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="main-container py-8 md:py-12">
+
+                <section id="about-me" class="mb-12 p-8 card-item" data-aos="fade-up">
+                    <h2 class="section-title"><i class="fas fa-address-card"></i>نبذة عني</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+مُعِدُّ مادة تعليمية ومُدقِّق لُغوي ومعلم لغة عربية ذو خبرة تمتدُّ لأكثر من 17 عامًا في مجال التعليم وتطوير المحتوى. أسعى دائمًا لتقديم محتوى تعليمي عالي الجودة، يجمع بين الدقة اللُّغوية والأسلوب الجذَّاب، ومواكبة أحدث التطورات في تقنيات التعليم. لدي القدرة على العمل ضمن فريق، وتطوير الذات، وقيادة المشروعات التعليمية نحو تحقيق أهدافها.
+                    </p>
+                </section>
+
+                <section id="personal-info" class="mb-12 p-8 card-item" data-aos="fade-up" data-aos-delay="100">
+                    <h2 class="section-title"><i class="fas fa-user-tie"></i>المعلومات الشخصية</h2>
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-5 text-lg">
+                        <li><strong>تاريخ الميلاد:</strong> 04-04-1987</li>
+                        <li><strong>الحالة الاجتماعية:</strong> متزوج</li>
+                        <li><strong>الموقف من التجنيد:</strong> مُعفًى نهائيًّا</li>
+                        <li class="md:col-span-2"><strong>العنوان:</strong> الحي الثامن - مدينة نصر - القاهرة - مصر</li>
+                    </ul>
+                </section>
+
+                <section id="education" class="mb-12 p-8 card-item" data-aos="fade-left" data-aos-delay="150">
+                    <h2 class="section-title"><i class="fas fa-graduation-cap"></i>المؤهلات العلمية</h2>
+                    <div class="section-detail-item education-detail-item">
+                        <h3 class="text-xl font-semibold">ليسانس اللغة العربية وآدابها والعلوم الإسلامية</h3>
+                        <p>كلية دار العلوم - جامعة القاهرة</p>
+                        <p class="text-sm">عام 2008 - التقدير العام: جيد</p>
+                    </div>
+                </section>
+
+                <section id="experience" class="mb-12 p-8 card-item" data-aos="zoom-in-up" data-aos-delay="200">
+                    <h2 class="section-title"><i class="fas fa-briefcase"></i>الخبرات العملية</h2>
+                    <div class="timeline">
+                        <div class="timeline-item" data-aos="fade-up" data-aos-anchor="#experience">
+                            <div class="timeline-content card-item">
+                                <h3 class="text-2xl font-semibold text-orange-700 mb-1">Senior Arabic Content Developer</h3>
+                                <p class="text-gray-800 font-medium text-lg">شركة Nagwa Technologies</p>
+                                <p class="text-gray-600 text-md"><i class="fas fa-calendar-alt mr-2 text-gray-500"></i>من 2020 حتى الآن - مصر</p>
+                                <ul class="mt-3 list-disc list-inside text-gray-700 space-y-1 pl-4">
+                                    <li>تطوير وإعداد مواد تعليمية تفاعلية لمختلِف المراحل الدراسية.</li>
+                                    <li>مراجعة وتدقيق المحتوى اللغوي والعلمي لضمان الجودة.</li>
+                                    <li>المساهمة في تصميم الخطط التعليمية وتحديد الأهداف.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-aos="fade-up" data-aos-anchor="#experience" data-aos-delay="100">
+                            <div class="timeline-content card-item">
+                                <h3 class="text-2xl font-semibold text-orange-700 mb-1">مصحح لُغوي ومراقب جودة، نائب رئيس قسم الجودة</h3>
+                                <p class="text-gray-800 font-medium text-lg">شركة كلمن للإنتاج التعليمي</p>
+                                <p class="text-gray-600 text-md"><i class="fas fa-calendar-alt mr-2 text-gray-500"></i>من 2016 حتى 2020 - مصر</p>
+                                <ul class="mt-3 list-disc list-inside text-gray-700 space-y-1 pl-4">
+                                    <li>قيادة فريق مراقبة الجودة وضمان دقة المواد التعليمية.</li>
+                                    <li>المشاركة في إعداد سلاسل تعليم اللغة العربية للناطقين بغيرها.</li>
+                                    <li>تطوير معايير الجودة وتطبيقها على جميع المنتجات.</li>
+                                </ul>
+                            </div>
+                        </div>
+                         <div class="timeline-item" data-aos="fade-up" data-aos-anchor="#experience" data-aos-delay="200">
+                            <div class="timeline-content card-item">
+                                <h3 class="text-2xl font-semibold text-orange-700 mb-1">معلم لغة عربية</h3>
+                                <p class="text-gray-800 font-medium text-lg">المراكز التعليمية (اكسفورد - هارفارد - مارثون وغيرها)</p>
+                                <p class="text-gray-600 text-md"><i class="fas fa-calendar-alt mr-2 text-gray-500"></i>من 2012 إلى 2016 - مصر</p>
+                                 <ul class="mt-3 list-disc list-inside text-gray-700 space-y-1 pl-4">
+                                    <li>تدريس مناهج اللغة العربية لمختلف المستويات.</li>
+                                    <li>تطبيق استراتيجيات تدريس حديثة وتفاعلية.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-aos="fade-up" data-aos-anchor="#experience" data-aos-delay="300">
+                            <div class="timeline-content card-item">
+                                <h3 class="text-2xl font-semibold text-orange-700 mb-1">معلم لغة عربية</h3>
+                                <p class="text-gray-800 font-medium text-lg">مدرسة المستقبل</p>
+                                <p class="text-gray-600 text-md"><i class="fas fa-calendar-alt mr-2 text-gray-500"></i>من 2010 إلى 2012 - التجمع - القاهرة</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-aos="fade-up" data-aos-anchor="#experience" data-aos-delay="400">
+                            <div class="timeline-content card-item">
+                                <h3 class="text-2xl font-semibold text-orange-700 mb-1">معلم لغة عربية</h3>
+                                <p class="text-gray-800 font-medium text-lg">مدرسة منارة هليوبليس</p>
+                                <p class="text-gray-600 text-md"><i class="fas fa-calendar-alt mr-2 text-gray-500"></i>من 2009 إلى 2010 - مدينة نصر - القاهرة</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="portfolio" class="mb-12 p-8 card-item" data-aos="fade-up" data-aos-delay="220">
+                    <h2 class="section-title"><i class="fas fa-folder-open"></i>نماذج من أعمالي</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-8 text-center">
+                        أدناه مجموعة مختارة من الأعمال التي أعددتها وطورتها في مجالات متنوعة.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="portfolio-item" data-aos="zoom-in-up" data-aos-delay="100">
+                            <i class="fas fa-file-word file-icon icon-docx"></i>
+                            <div class="file-name-container">
+                                <h3 class="file-name">التشبيه (بلاغة) للمرحلة الثانوية</h3>
+                                <p class="file-description">مستند شرح تفصيلي</p>
+                            </div>
+                            <a href="https://docs.google.com/document/d/1AB26KzKwkuMGVIIwZOZKHotqgoUTmbGO/edit?tab=t.0#heading=h.1fob9te" target="_blank" rel="noopener noreferrer" class="view-button">
+                                <i class="fas fa-eye mr-2"></i>عرض الملف
+                            </a>
+                        </div>
+
+                        <div class="portfolio-item" data-aos="zoom-in-up" data-aos-delay="150">
+                            <i class="fas fa-file-word file-icon icon-docx"></i>
+                            <div class="file-name-container">
+                                <h3 class="file-name">نص شعري متحرر على أدب الإحياء والبعث</h3>
+                                <p class="file-description">(نصوص) للصف الثالث الثانوي</p>
+                            </div>
+                            <a href="https://docs.google.com/document/d/1qq6hrLqtenoei0OsgCTu3fN7AsT32u9D/edit?usp=drive_link&ouid=111246139471621690505&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" class="view-button">
+                                <i class="fas fa-eye mr-2"></i>عرض الملف
+                            </a>
+                        </div>
+
+                        <div class="portfolio-item" data-aos="zoom-in-up" data-aos-delay="200">
+                            <i class="fas fa-file-powerpoint file-icon icon-pptx"></i>
+                            <div class="file-name-container">
+                                <h3 class="file-name">الحروف التي تُكتب ولا تُنطق</h3>
+                                <p class="file-description">(إملاء) للصف الأول الإعدادي</p>
+                            </div>
+                            <a href="https://docs.google.com/presentation/d/1epM_xT1YwUK2cv1jc2QL_IQ9e_u6-D40/edit?usp=drive_link&ouid=111246139471621690505&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" class="view-button">
+                                <i class="fas fa-eye mr-2"></i>عرض الملف
+                            </a>
+                        </div>
+
+                        <div class="portfolio-item" data-aos="zoom-in-up" data-aos-delay="250">
+                            <i class="fas fa-file-word file-icon icon-docx"></i>
+                            <div class="file-name-container">
+                                <h3 class="file-name">ورقة تدريب «أسلوب التعجب»</h3>
+                                <p class="file-description">(نحو) للصف الثالث الثانوي</p>
+                            </div>
+                            <a href="https://docs.google.com/document/d/1d0tmw3eDwx9ghLmP511s2Z3m3WgJ3nHS/edit?usp=drive_link&ouid=111246139471621690505&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" class="view-button">
+                                <i class="fas fa-eye mr-2"></i>عرض الملف
+                            </a>
+                        </div>
+
+                        <div class="portfolio-item" data-aos="zoom-in-up" data-aos-delay="300">
+                            <i class="fas fa-file-pdf file-icon icon-pdf"></i> <div class="file-name-container">
+                                <h3 class="file-name">ورقة تدريب «أغراض الشعر في العصر الأموي»</h3>
+                                <p class="file-description">(أدب ونصوص متحررة) للصف الثاني الثانوي</p>
+                            </div>
+                            <a href="https://docs.google.com/document/d/1RPJRSWz3DcYajly2oFZqMu_y0eUhoMHk/edit?usp=drive_link&ouid=111246139471621690505&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" class="view-button">
+                                <i class="fas fa-eye mr-2"></i>عرض الملف
+                            </a>
+                        </div>
+
+                        <div class="portfolio-item" data-aos="zoom-in-up" data-aos-delay="350">
+                            <i class="fas fa-file-powerpoint file-icon icon-pptx"></i>
+                            <div class="file-name-container">
+                                <h3 class="file-name">الأفعال التي تنصب مفعولين أصلهما المبتدأ والخبر</h3>
+                                <p class="file-description">(نحو) للصف الأول الإعدادي</p>
+                            </div>
+                            <a href="https://docs.google.com/presentation/d/1sL-QKsY0VNiUf4m9RzAk5plKTLv28eHH/edit?usp=drive_link&ouid=111246139471621690505&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" class="view-button">
+                                <i class="fas fa-eye mr-2"></i>عرض الملف
+                            </a>
+                        </div>
+
+                        <div class="portfolio-item" data-aos="zoom-in-up" data-aos-delay="400">
+                            <i class="fas fa-file-powerpoint file-icon icon-pptx"></i>
+                            <div class="file-name-container">
+                                <h3 class="file-name">عرض تقديمي «كتابة قصة خيالية»</h3>
+                                <p class="file-description">(تعبير كتابي) للصف الأول الإعدادي</p>
+                            </div>
+                            <a href="https://docs.google.com/presentation/d/1D3pZBPhNjkKYXmif5_I1Foif6ZtjZhBi/edit?usp=drive_link&ouid=111246139471621690505&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" class="view-button">
+                                <i class="fas fa-eye mr-2"></i>عرض الملف
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="courses" class="mb-12 p-8 card-item" data-aos="fade-right" data-aos-delay="250">
+                    <h2 class="section-title"><i class="fas fa-chalkboard-teacher"></i>الدورات والشهادات</h2>
+                    <div class="section-detail-item course-detail-item">
+                        <h3 class="text-xl font-semibold">الرخصة الدولية لقيادة الحاسوب (ICDL)</h3>
+                        <p class="text-gray-700">شهادة معتمدة في مهارات الحاسوب الأساسية وتطبيقات Office.</p>
+                    </div>
+                </section>
+
+                <section id="skills" class="mb-12 p-8 card-item" data-aos="fade-up" data-aos-delay="300">
+                    <h2 class="section-title"><i class="fas fa-cogs"></i>المهارات</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <div data-aos="fade-right" data-aos-delay="350">
+                            <h3 class="text-xl font-semibold text-gray-700 mb-4 border-b-2 border-gray-300 pb-2"><i class="fas fa-tools mr-2 text-gray-500"></i>مهارات تقنية وفنية</h3>
+                            <ul class="skills-list space-y-2 text-lg">
+                                <li>إجادة استخدام الحاسب الآلي والإنترنت.</li>
+                                <li>خبرة متقدمة في برامج Microsoft Office Suite.</li>
+                                <li>إجادة برنامج Adobe Acrobat Pro.</li>
+                                <li>سرعة ودقة في إدخال البيانات وتشكيل النصوص.</li>
+                                <li>خبرة في التعامل مع أنظمة إدارة المحتوى (CMS).</li>
+                                <li>مراجعة ملفات الصوت وتفريغها بدقة.</li>
+                            </ul>
+                        </div>
+                        <div data-aos="fade-left" data-aos-delay="400">
+                            <h3 class="text-xl font-semibold text-gray-700 mb-4 border-b-2 border-gray-300 pb-2"><i class="fas fa-users mr-2 text-gray-500"></i>مهارات شخصية ولغوية</h3>
+                            <ul class="skills-list space-y-2 text-lg">
+                                <li>تدقيق لغوي احترافي وضبط المحتويات العلمية.</li>
+                                <li>إعادة الصياغة للمنتجات التعليمية بأسلوب جذاب.</li>
+                                <li>مهارات تواصل ممتازة (كتابية وشفوية).</li>
+                                <li>إجادة البحث وجمع المعلومات بكفاءة.</li>
+                                <li>القدرة على تطوير الذات والتعلم المستمر.</li>
+                                <li>العمل الجماعي الفعال وقيادة الفرق.</li>
+                                <li>الانضباط والدقة والقدرة على العمل تحت الضغط.</li>
+                                <li>مهارات متقدمة في حل المشكلات واكتشاف الأخطاء.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="languages" class="mb-12 p-8 card-item" data-aos="fade-left" data-aos-delay="350">
+                    <h2 class="section-title"><i class="fas fa-language"></i>اللغات</h2>
+                    <ul class="text-lg space-y-4">
+                        <li class="section-detail-item language-detail-item"><strong>اللغة العربية:</strong> <span>اللغة الأم (بطلاقة تامة في القراءة والكتابة والمحادثة الأكاديمية والمهنية).</span></li>
+                        <li class="section-detail-item language-detail-item"><strong>اللغة الإنجليزية:</strong> <span>مستوى جيد جداً (قراءة وكتابة متقدمة)، جيد (استماع وفهم وتحدث).</span></li>
+                    </ul>
+                </section>
+
+                <section id="hobbies" class="mb-12 p-8 card-item" data-aos="fade-right" data-aos-delay="400">
+                    <h2 class="section-title"><i class="fas fa-palette"></i>الهوايات والاهتمامات</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-center">
+                        <div class="p-5 bg-indigo-100 rounded-xl shadow-md card-item hover:bg-indigo-200" data-aos="flip-left" data-aos-delay="100">
+                            <i class="fas fa-book-open file-icon fa-3x text-indigo-600 mb-3"></i>
+                            <p class="font-semibold text-indigo-800 text-lg">القراءة المتعمقة</p>
+                        </div>
+                        <div class="p-5 bg-teal-100 rounded-xl shadow-md card-item hover:bg-teal-200" data-aos="flip-left" data-aos-delay="200">
+                            <i class="fas fa-laptop-code file-icon fa-3x text-teal-600 mb-3"></i>
+                            <p class="font-semibold text-teal-800 text-lg">تعلم التقنيات الحديثة</p>
+                        </div>
+                        <div class="p-5 bg-red-100 rounded-xl shadow-md card-item hover:bg-red-200" data-aos="flip-left" data-aos-delay="300">
+                            <i class="fas fa-pen-alt file-icon fa-3x text-red-600 mb-3"></i>
+                            <p class="font-semibold text-red-800 text-lg">الكتابة الإبداعية</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="contact" class="mb-12 p-8 card-item" data-aos="fade-up" data-aos-delay="450">
+                    <h2 class="section-title"><i class="fas fa-address-book"></i>معلومات الاتصال</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-lg">
+                        <a href="mailto:Reda.Gebril7@gmail.com" class="flex items-center justify-center p-4 bg-blue-500 hover:bg-blue-600 text-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                            <i class="fas fa-envelope fa-fw mr-3 text-xl"></i>
+                            <span>Reda.Gebril7@gmail.com</span>
+                        </a>
+                        <a href="tel:01153335900" class="flex items-center justify-center p-4 bg-green-500 hover:bg-green-600 text-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                            <i class="fas fa-phone-alt fa-fw mr-3 text-xl"></i>
+                            <span>01153335900</span>
+                        </a>
+                    </div>
+                    <div class="mt-8 text-center">
+                        <button onclick="downloadCV()" class="pdf-download-btn font-semibold py-3 px-8 rounded-lg shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary-color focus:ring-opacity-50">
+                            <i class="fas fa-file-pdf mr-2"></i> تحميل نسخة PDF
+                        </button>
+                    </div>
+                </section>
+            </main>
+        </div> </div> <footer class="bg-gray-900 text-white text-center py-10 mt-16">
+        <p class="text-lg">&copy; <span id="currentYear"></span> رضا حسن دسوقي جبريل. جميع الحقوق محفوظة.</p>
+        <p class="text-md text-gray-400 mt-1">تم التصميم والتطوير بشغف واحترافية.</p>
+        <div class="mt-5">
+            <a href="mailto:Reda.Gebril7@gmail.com" class="text-orange-400 hover:text-orange-300 mx-3 text-2xl transition-colors duration-300"><i class="fas fa-envelope"></i></a>
+            </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 700,
+            once: false,
+            offset: 80,
+            easing: 'ease-in-out-cubic',
+        });
+
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        window.onscroll = function() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                scrollTopBtn.style.display = "block";
+            } else {
+                scrollTopBtn.style.display = "none";
+            }
+        };
+        function scrollToTop() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        const jobTitleText = "معد مادة تعليمية - مدقق لغوي - معلم لغة عربية";
+        const jobTitleElement = document.getElementById('jobTitle');
+        let charIndex = 0;
+        function typeJobTitle() {
+            if (charIndex < jobTitleText.length) {
+                jobTitleElement.innerHTML += jobTitleText.charAt(charIndex);
+                charIndex++;
+                if (charIndex === 1) jobTitleElement.classList.add('typing-effect');
+                setTimeout(typeJobTitle, 65);
+            } else {
+                jobTitleElement.classList.remove('typing-effect');
+                jobTitleElement.classList.add('finished');
+            }
+        }
+        window.addEventListener('load', () => {
+            setTimeout(typeJobTitle, 600);
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('main section');
+            const navLinks = document.querySelectorAll('#sideNav .nav-link');
+            const mainContentShifted = document.querySelector('.main-content-shifted');
+            const sideNav = document.getElementById('sideNav');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '-50% 0px -50% 0px',
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const id = entry.target.getAttribute('id');
+                    const navLink = document.querySelector(`#sideNav .nav-link[href="#${id}"]`);
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => link.classList.remove('active'));
+                        if (navLink) {
+                            navLink.classList.add('active');
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                if (section) observer.observe(section);
+            });
+
+            const currentHash = window.location.hash;
+            if (currentHash) {
+                const activeLinkOnLoad = document.querySelector(`#sideNav .nav-link[href="${currentHash}"]`);
+                if (activeLinkOnLoad) {
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    activeLinkOnLoad.classList.add('active');
+                }
+            } else {
+                 const firstNavLink = document.querySelector('#sideNav .nav-link[href="#header"]');
+                 if(firstNavLink) firstNavLink.classList.add('active');
+            }
+
+            if (sideNav && mainContentShifted) {
+                sideNav.addEventListener('mouseenter', () => {
+                    if (window.innerWidth >= 768) { 
+                        mainContentShifted.style.marginRight = '16rem';
+                    }
+                });
+                sideNav.addEventListener('mouseleave', () => {
+                     if (window.innerWidth >= 768) { 
+                        mainContentShifted.style.marginRight = '5rem';
+                    }
+                });
+            }
+        });
+
+        function downloadCV() {
+            const pdfUrl = 'https://dl.dropbox.com/scl/fi/yge8pxgm5mmy6wxkstz6f/_.pdf?rlkey=f2ylw9nnhbtp04dknnffu2rox&st=9smtsp2h&dl=1';
+            const link = document.createElement('a');
+            link.href = pdfUrl;
+            link.download = 'السيرة_الذاتية_رضا_جبريل.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            const downloadMessage = document.createElement('div');
+            downloadMessage.textContent = 'بدء تحميل السيرة الذاتية...';
+            downloadMessage.style.position = 'fixed';
+            downloadMessage.style.bottom = '20px';
+            downloadMessage.style.right = '20px';
+            downloadMessage.style.backgroundColor = 'var(--accent-color)';
+            downloadMessage.style.color = 'white';
+            downloadMessage.style.padding = '10px 20px';
+            downloadMessage.style.borderRadius = '5px';
+            downloadMessage.style.zIndex = '2000';
+            document.body.appendChild(downloadMessage);
+            setTimeout(() => {
+                document.body.removeChild(downloadMessage);
+            }, 3000);
+        }
+        document.querySelectorAll('#sideNav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>
